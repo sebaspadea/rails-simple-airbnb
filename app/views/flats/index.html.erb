@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>All our Flats</h1>
+  <h6>All <%= @flats.count %> flats</h6>
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-md-3 my-3">
+        <div class="card">
+          <%= image_tag "https://picsum.photos/seed/picsum/200/300", class: "img-fluid" %>
+          <h3><%= flat["name"] %></h3>
+          <h4><%= flat["address"] %></h4>
+          <p>💲 <%= flat["price_per_night"] %> 👪<%= flat["number_of_guest"] %> </p>
+        </div>
+        <div class="card-footer">
+          <%= link_to "More Info", flat_path(flat["id"]), class: "btn btn-outline-primary" %>
+          <%= link_to "Edit", edit_flat_path(flat["id"]),  class: "btn btn-outline-success"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
